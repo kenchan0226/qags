@@ -7,7 +7,9 @@ function preprocess() {
     data="tmp"
 
     #dat_dir="/private/home/wangalexc/data/cnndailymail/fseq/labeled-subset/${data}"
-    dat_dir="${PROC}/cnndailymail/fseq/labeled-subset/${data}"
+    #dat_dir="${PROC}/cnndailymail/fseq/labeled-subset/${data}"
+    dat_dir="../../datasets/cased-cnn-dailymail_coref_3_ans_cond"
+
     tok_dir="${dat_dir}/tokenized"
     out_dir="${dat_dir}/processed"
     mkdir -p ${tok_dir}
