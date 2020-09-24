@@ -24,12 +24,12 @@ def _count_data(path):
 
 def prepare_ans_conditional_data_from_json(data_dir,
                                  out_dir,
-                                 out_prefix,
+                                 out_split,
                                  ):
 
-    txt_w_ans_file = f"{out_dir}/{out_prefix}_w_ans.txt"
-    txt_file = f"{out_dir}/{out_prefix}.txt"
-    ans_file = f"{out_dir}/{out_prefix}_ans.txt"
+    txt_w_ans_file = f"{out_dir}/{out_split}_w_ans.txt"
+    txt_file = f"{out_dir}/{out_split}.txt"
+    ans_file = f"{out_dir}/{out_split}_ans.txt"
 
     # extract reference entities as answer
 
@@ -88,13 +88,13 @@ def main():
     parser.add_argument("--data_dir", type=str, help=".")
     parser.add_argument("--split", type=str, help=".")
     parser.add_argument("--out_dir", type=str, help="Directory to write outputs")
-    parser.add_argument("--out_prefix", type=str, default="test", help="Prefix for files written out")
+    parser.add_argument("--out_split", type=str, default="test", help="Prefix for files written out")
 
     args = parser.parse_args()
 
     split_dir = join(args.data_dir, args.split)
 
-    prepare_ans_conditional_data_from_json(split_dir, args.out_dir, args.out_prefix)
+    prepare_ans_conditional_data_from_json(split_dir, args.out_dir, args.out_split)
 
 if __name__ == '__main__':
     main()
